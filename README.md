@@ -1,16 +1,44 @@
-# React + Vite
+# 💻 DevStudio - Portfólio & Agência Digital
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este repositório contém o código-fonte do meu portfólio profissional (atuando como **DevStudio**), desenvolvido para apresentar soluções de engenharia de software de alta performance.
 
-Currently, two official plugins are available:
+O projeto é uma **Landing Page** com estética "Ultra Tech" (Cyberpunk/Neon), projetada para transmitir autoridade técnica, atrair clientes B2B e exibir cases de sucesso com interatividade avançada.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<img width="100%" alt="Preview do Portfólio" src="public/pagina.jpg" />
 
-## React Compiler
+## 🚀 Tecnologias Utilizadas
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+O projeto foi construído utilizando uma stack moderna focada em performance e experiência do usuário:
 
-## Expanding the ESLint configuration
+* **[React](https://react.dev/)**: Biblioteca JavaScript para construção de interfaces reativas.
+* **[Vite](https://vitejs.dev/)**: Build tool de última geração para desenvolvimento ágil.
+* **[Tailwind CSS](https://tailwindcss.com/)**: Framework utility-first para estilização responsiva e tema Dark Mode.
+* **[Framer Motion](https://www.framer.com/motion/)**: Biblioteca para animações de entrada, scroll e micro-interações.
+* **[tsParticles](https://particles.js.org/)**: Motor de partículas leve para o fundo dinâmico e tecnológico.
+* **[Lucide React](https://lucide.dev/)**: Conjunto de ícones vetoriais modernos e consistentes.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ✨ Destaques do Projeto
+
+* **Identidade Visual Tech**: Paleta de cores Neon (`brand-primary: #00f2ff`, `brand-secondary: #bd00ff`) sobre fundo Dark profundo, reforçando a inovação.
+* **Experiência Interativa (Hover)**: Cards de projetos que revelam **GIFs animados** automaticamente ao passar o mouse, simulando o uso real das aplicações.
+* **Elemento 3D (Hero)**: Card flutuante com código (`profile.tsx`) na seção inicial, destacando a expertise em desenvolvimento.
+* **Fundo Dinâmico**: Partículas conectadas (`tsparticles-slim`) reagindo ao mouse, criando imersão sem comprometer a performance.
+* **Seções Estratégicas**:
+    * **Hero**: Headline de autoridade com Call-to-Action (CTA) claro para orçamento.
+    * **Soluções**: Grid de serviços (Design, Responsividade, Performance).
+    * **Case Studies**: Galeria de projetos recentes (Engenharia, Educação, Finanças) com links externos.
+    * **Rodapé**: Área de contato direta (WhatsApp/LinkedIn) e selo de desenvolvedor.
+
+## 📂 Estrutura do Projeto
+
+```bash
+├── public/              # Arquivos estáticos (GIFs dos projetos, Favicon, Perfil)
+├── src/
+│   ├── assets/          # Assets vetoriais e imagens importadas
+│   ├── App.jsx          # Componente principal (Lógica, Dados e Layout)
+│   ├── index.css        # Configurações globais do Tailwind e Fontes
+│   └── main.jsx         # Ponto de entrada da aplicação React
+├── index.html           # HTML base com SEO e Meta Tags
+├── tailwind.config.cjs  # Configuração de Cores da Marca (Brand Colors)
+├── vite.config.js       # Configuração do Vite
+└── package.json         # Dependências e scripts
