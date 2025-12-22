@@ -35,7 +35,7 @@ const App = () => {
     detectRetina: true,
   };
 
-  // --- DADOS DOS PROJETOS (Arquivos Locais) ---
+  // --- DADOS DOS PROJETOS ---
   const projects = [
     { 
       title: "Eng. Matheus Ribeiro", 
@@ -82,8 +82,8 @@ const App = () => {
       <nav className="fixed w-full z-50 top-0 py-4 px-6 backdrop-blur-md border-b border-white/5 bg-black/50">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div className="text-xl font-bold tracking-tighter text-white flex items-center gap-2">
-            <Code2 size={24} className="text-brand-primary" />
-            <span>DEV<span className="text-brand-primary">STUDIO</span></span>
+            <Terminal size={20} className="text-brand-primary" />
+            <span>Raphael<span className="text-brand-primary">Yankous</span></span>
           </div>
           
           <div className="hidden md:flex gap-8 text-sm font-bold uppercase tracking-widest text-gray-400">
@@ -165,7 +165,7 @@ const App = () => {
             </div>
           </motion.div>
 
-          {/* Lado Direito: O CARD 3D COM SUAS INFORMAÇÕES */}
+          {/* Lado Direito: O CARD 3D COM SUAS INFORMAÇÕES (Trazido de volta!) */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -261,10 +261,8 @@ const App = () => {
                 className="group relative bg-[#0a0a0a] rounded-2xl overflow-hidden border border-white/10 hover:border-brand-primary/50 transition-all duration-500 flex flex-col"
               >
                 <div className="h-64 overflow-hidden relative bg-gray-900 cursor-pointer">
-                  {/* Overlay Dark */}
                   <div className="absolute inset-0 bg-brand-dark/20 group-hover:bg-transparent transition-all duration-500 z-20 pointer-events-none"></div>
 
-                  {/* IMAGEM PRINCIPAL */}
                   <img 
                     src={project.image} 
                     alt={project.title} 
@@ -272,7 +270,6 @@ const App = () => {
                     onError={(e) => {e.target.style.display='none'}} 
                   />
 
-                  {/* GIF (Se existir) */}
                   {project.gif && (
                     <img 
                       src={project.gif} 
@@ -281,7 +278,6 @@ const App = () => {
                     />
                   )}
 
-                  {/* Link Icon */}
                   <div className="absolute top-4 right-4 z-30 bg-black/60 backdrop-blur-md p-2 rounded-full border border-white/10 group-hover:bg-brand-primary group-hover:text-black transition-colors duration-300">
                     <ExternalLink size={16} />
                   </div>
@@ -344,7 +340,7 @@ const App = () => {
 
           <div className="mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-xs text-gray-600 font-mono">
             <div className="flex items-center gap-3 mb-4 md:mb-0">
-               {/* FOTO PEQUENA NO RODAPÉ */}
+               {/* FOTO PEQUENA (Discreta) */}
                <div className="w-8 h-8 rounded-full overflow-hidden border border-white/20">
                  <img src="/perfil.png" alt="Raphael" className="w-full h-full object-cover" onError={(e) => {e.target.style.display='none'}} />
                </div>
