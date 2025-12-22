@@ -4,7 +4,7 @@ import { loadSlim } from "tsparticles-slim";
 import { motion } from 'framer-motion';
 import { 
   Terminal, Cpu, Rocket, Github, Linkedin, MessageCircle, 
-  ExternalLink, Monitor, Smartphone, Zap, Menu, X, Code2 
+  ExternalLink, Monitor, Smartphone, Zap, Menu, X, Code2, CheckCircle2 
 } from 'lucide-react';
 
 const App = () => {
@@ -75,6 +75,34 @@ const App = () => {
     },
   ];
 
+  // --- DADOS DOS PLANOS ---
+  const plans = [
+    {
+      name: "START",
+      price: "1.200",
+      desc: "O essencial para colocar seu negócio online com rapidez e qualidade.",
+      features: ["Landing Page Padrão", "Design Responsivo (Mobile)", "Botão de WhatsApp", "Hospedagem Inclusa"],
+      highlight: false,
+      color: "border-white/10"
+    },
+    {
+      name: "PRO",
+      price: "1.900",
+      desc: "Foco total em autoridade e conversão. O favorito dos profissionais.",
+      features: ["Design Exclusivo & Premium", "Botão Flutuante (Alta Conversão)", "Integração Maps & Social", "1 Mês de Suporte Grátis"],
+      highlight: true, // Destaque
+      color: "border-brand-primary"
+    },
+    {
+      name: "AUTHORITY",
+      price: "2.800",
+      desc: "Para quem quer dominar o nicho com tecnologia de ponta.",
+      features: ["SEO Técnico Avançado (Google)", "Página Extra (Blog/Sobre)", "Animações Premium", "Configuração de E-mail Pro"],
+      highlight: false,
+      color: "border-brand-secondary"
+    }
+  ];
+
   return (
     <div className="font-sans text-gray-200 bg-brand-dark selection:bg-brand-primary selection:text-black overflow-x-hidden">
       
@@ -82,12 +110,12 @@ const App = () => {
       <nav className="fixed w-full z-50 top-0 py-4 px-6 backdrop-blur-md border-b border-white/5 bg-black/50">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div className="text-xl font-bold tracking-tighter text-white flex items-center gap-2">
-            <Terminal size={20} className="text-brand-primary" />
-            <span>Raphael<span className="text-brand-primary">Yankous</span></span>
+            <Code2 size={24} className="text-brand-primary" />
+            <span>DEV<span className="text-brand-primary">STUDIO</span></span>RaphaelYankous<span className="text-brand-secondary">.</span>
           </div>
           
           <div className="hidden md:flex gap-8 text-sm font-bold uppercase tracking-widest text-gray-400">
-            {['Projetos', 'Soluções', 'Contato'].map((item) => (
+            {['Projetos', 'Soluções', 'Planos', 'Contato'].map((item) => (
               <a key={item} href={`#${item.toLowerCase()}`} className="hover:text-brand-primary transition-colors">{item}</a>
             ))}
           </div>
@@ -110,7 +138,7 @@ const App = () => {
             animate={{ opacity: 1, y: 0 }}
             className="md:hidden absolute top-full left-0 w-full bg-black/95 border-b border-white/10 p-6 flex flex-col gap-4 text-center"
           >
-            {['Projetos', 'Soluções', 'Contato'].map((item) => (
+            {['Projetos', 'Soluções', 'Planos', 'Contato'].map((item) => (
               <a 
                 key={item} 
                 href={`#${item.toLowerCase()}`}
@@ -124,7 +152,7 @@ const App = () => {
         )}
       </nav>
 
-      {/* --- HERO SECTION (EMPRESA + CARD DE CÓDIGO) --- */}
+      {/* --- HERO SECTION --- */}
       <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
         <div className="absolute inset-0 z-0">
             <Particles id="tsparticles" init={particlesInit} options={particlesOptions} className="w-full h-full" />
@@ -133,7 +161,6 @@ const App = () => {
 
         <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10">
           
-          {/* Lado Esquerdo: Texto de Autoridade */}
           <motion.div 
             initial={{ opacity: 0, x: -50 }} 
             animate={{ opacity: 1, x: 0 }} 
@@ -155,8 +182,8 @@ const App = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">
-              <a href="#projetos" className="bg-white text-black font-bold py-4 px-8 rounded-sm inline-flex items-center justify-center gap-2 hover:bg-brand-primary transition-all duration-300 shadow-lg hover:shadow-[0_0_30px_rgba(0,242,255,0.4)]">
-                Ver Projetos <Rocket size={18} />
+              <a href="#planos" className="bg-white text-black font-bold py-4 px-8 rounded-sm inline-flex items-center justify-center gap-2 hover:bg-brand-primary transition-all duration-300 shadow-lg hover:shadow-[0_0_30px_rgba(0,242,255,0.4)]">
+                Ver Planos <Rocket size={18} />
               </a>
               <div className="flex gap-4 items-center justify-center sm:justify-start px-4">
                 <a href="https://github.com/RaphaelYankous" target="_blank" className="text-gray-400 hover:text-white transition-transform hover:scale-125"><Github size={24} /></a>
@@ -165,20 +192,15 @@ const App = () => {
             </div>
           </motion.div>
 
-          {/* Lado Direito: O CARD 3D COM SUAS INFORMAÇÕES (Trazido de volta!) */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.2 }}
             className="hidden lg:block relative"
           >
-            {/* Glow de fundo */}
             <div className="absolute inset-0 bg-gradient-to-tr from-brand-primary/20 to-brand-secondary/20 rounded-full blur-[100px] animate-pulse"></div>
             
-            {/* Card Flutuante simulando IDE */}
             <div className="relative bg-[#111]/90 backdrop-blur-xl border border-white/10 p-8 rounded-xl shadow-2xl transform rotate-3 hover:rotate-0 transition-all duration-500 group hover:border-brand-primary/30">
-              
-              {/* Barra de título do card */}
               <div className="flex justify-between items-center mb-6 border-b border-white/5 pb-4">
                 <div className="flex gap-2">
                   <div className="w-3 h-3 rounded-full bg-red-500 group-hover:animate-pulse"></div>
@@ -188,7 +210,6 @@ const App = () => {
                 <span className="text-xs font-mono text-gray-500">profile.tsx</span>
               </div>
 
-              {/* O CÓDIGO COM SUAS INFORMAÇÕES */}
               <div className="space-y-3 font-mono text-sm leading-relaxed">
                 <div className="flex gap-2">
                   <span className="text-brand-secondary">const</span>
@@ -196,7 +217,6 @@ const App = () => {
                   <span className="text-white">=</span>
                   <span className="text-yellow-400">{"{"}</span>
                 </div>
-                
                 <div className="pl-6 text-gray-400">
                   name: <span className="text-green-400">"Raphael Yankous"</span>,<br/>
                   role: <span className="text-green-400">"Full Stack Engineer"</span>,<br/>
@@ -206,7 +226,6 @@ const App = () => {
                   ],<br/>
                   focus: <span className="text-brand-primary">"High Performance"</span>
                 </div>
-                
                 <div className="text-yellow-400">{"}"}</div>
                 <br/>
                 <div className="text-gray-500 flex items-center gap-2">
@@ -275,6 +294,7 @@ const App = () => {
                       src={project.gif} 
                       alt={`${project.title} preview`} 
                       className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"
+                      onError={(e) => {e.target.style.display='none'}}
                     />
                   )}
 
@@ -307,13 +327,68 @@ const App = () => {
         </div>
       </section>
 
+      {/* --- NOVA SEÇÃO: PLANOS E INVESTIMENTO --- */}
+      <section id="planos" className="py-24 border-t border-white/5 relative z-10 bg-[#060606]">
+        <div className="container mx-auto px-6">
+          <div className="mb-16 text-center">
+            <span className="text-brand-secondary font-bold tracking-widest uppercase text-xs">Investimento</span>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mt-2">Escolha seu Nível</h2>
+            <p className="text-gray-400 mt-4 max-w-xl mx-auto">Valores transparentes. Tecnologia de ponta. Escolha o pacote ideal para sua fase atual.</p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto items-start">
+            {plans.map((plan, i) => (
+              <motion.div 
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.2 }}
+                className={`relative bg-[#0a0a0a] rounded-2xl p-8 border ${plan.highlight ? 'border-brand-primary shadow-[0_0_30px_rgba(0,242,255,0.1)]' : 'border-white/10'} hover:border-brand-primary/50 transition-all duration-300 flex flex-col`}
+              >
+                {/* Selo de Recomendado */}
+                {plan.highlight && (
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-brand-primary text-black text-xs font-bold px-4 py-1 rounded-full uppercase tracking-widest">
+                    Mais Escolhido
+                  </div>
+                )}
+
+                <h3 className="text-xl font-bold text-white mb-2">{plan.name}</h3>
+                <div className="flex items-baseline gap-1 mb-4">
+                  <span className="text-sm text-gray-500">R$</span>
+                  <span className={`text-4xl font-bold ${plan.highlight ? 'text-brand-primary' : 'text-white'}`}>{plan.price}</span>
+                  <span className="text-sm text-gray-500">,00</span>
+                </div>
+                <p className="text-gray-400 text-sm mb-8 leading-relaxed h-10">{plan.desc}</p>
+
+                <ul className="space-y-4 mb-8 flex-1">
+                  {plan.features.map((feat, idx) => (
+                    <li key={idx} className="flex items-center gap-3 text-sm text-gray-300">
+                      <CheckCircle2 size={16} className={plan.highlight ? 'text-brand-primary' : 'text-gray-600'} />
+                      {feat}
+                    </li>
+                  ))}
+                </ul>
+
+                <a 
+                  href={`https://wa.me/5531993790633?text=Olá, tenho interesse no Pacote ${plan.name} de R$ ${plan.price}.`}
+                  className={`w-full py-3 rounded font-bold text-sm uppercase tracking-widest transition-all duration-300 flex items-center justify-center gap-2 ${plan.highlight ? 'bg-brand-primary text-black hover:bg-white' : 'bg-white/5 text-white hover:bg-white/10 border border-white/10'}`}
+                >
+                  <MessageCircle size={18} /> Contratar
+                </a>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* --- FOOTER / CONTATO --- */}
       <footer id="contato" className="py-24 border-t border-white/10 relative overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-brand-primary/10 blur-[120px] rounded-full pointer-events-none"></div>
         
         <div className="container mx-auto px-6 relative z-10 text-center">
           <h2 className="text-4xl md:text-6xl font-bold text-white mb-8 tracking-tight">
-            Pronto para o <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary">Próximo Nível?</span>
+            Vamos construir o <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary">Futuro?</span>
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto mb-12 text-lg">
             Solicite um orçamento e vamos construir uma plataforma que converte visitantes em clientes fiéis.
@@ -326,7 +401,7 @@ const App = () => {
             >
               <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
               <MessageCircle size={20} className="relative z-10" />
-              <span className="relative z-10">Iniciar Projeto via WhatsApp</span>
+              <span className="relative z-10">Falar no WhatsApp</span>
             </a>
             
             <a 
@@ -334,13 +409,12 @@ const App = () => {
               target="_blank"
               className="text-gray-300 hover:text-white flex items-center gap-2 font-medium transition-colors border-b border-transparent hover:border-white"
             >
-              <Linkedin size={18} /> Conectar no LinkedIn
+              <Linkedin size={18} /> LinkedIn
             </a>
           </div>
 
           <div className="mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-xs text-gray-600 font-mono">
             <div className="flex items-center gap-3 mb-4 md:mb-0">
-               {/* FOTO PEQUENA (Discreta) */}
                <div className="w-8 h-8 rounded-full overflow-hidden border border-white/20">
                  <img src="/perfil.png" alt="Raphael" className="w-full h-full object-cover" onError={(e) => {e.target.style.display='none'}} />
                </div>
